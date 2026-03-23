@@ -13,6 +13,7 @@ export default function GlassButton({
   variant = 'primary',
   size = 'md',
   className = '',
+  disabled,
   ...props 
 }: GlassButtonProps) {
   const baseStyles = 'relative overflow-hidden rounded-xl font-medium transition-all duration-300 backdrop-blur-md';
@@ -31,7 +32,8 @@ export default function GlassButton({
 
   return (
     <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${disabled ? 'opacity-50 cursor-not-allowed hover:from-purple-500/30 hover:to-blue-500/30 hover:border-purple-400/30' : ''} ${className}`}
+      disabled={disabled}
       {...props}
     >
       <span className="relative z-10">{children}</span>

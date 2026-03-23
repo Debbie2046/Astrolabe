@@ -11,7 +11,8 @@ interface GlassCardProps extends HTMLAttributes<HTMLDivElement> {
 export default function GlassCard({ 
   children, 
   className = '',
-  hover = false
+  hover = false,
+  ...props
 }: GlassCardProps) {
   return (
     <div 
@@ -23,6 +24,7 @@ export default function GlassCard({
         ${hover ? 'hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer' : ''}
         ${className}
       `}
+      {...props}
     >
       {children}
     </div>
